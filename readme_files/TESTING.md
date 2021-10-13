@@ -12,9 +12,19 @@
 
 ### Issues and Bugs
 
+1.
+
 Error running python3 manage.py migrate
 
 Hadn't saved so there was nothing to migrate. This issue was resolved when file was saved.
+
+2.
+
+Error when running the site using python3 manage.py runserver in the development environment.
+
+Error was occuring as the `{% extends 'base.html' %}` templating was missing `''`.
+
+When the `''` were added everything works as expected.
 
 ### Performance Testing
 
