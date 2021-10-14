@@ -35,3 +35,10 @@
     border: 0;
     text-decoration: none;
 }
+
+.txc-promo-video {
+    width: 920px;
+    height: 520px;
+    margin: 0 auto;
+    display: block;
+}
