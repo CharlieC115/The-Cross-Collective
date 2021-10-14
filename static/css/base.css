@@ -42,3 +42,8 @@
     margin: 0 auto;
     display: block;
 }
+
+.team-photo {
+    width: 75vw;
+    height: auto;
+}
