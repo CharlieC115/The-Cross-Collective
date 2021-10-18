@@ -26,6 +26,12 @@ Error was occuring as the `{% extends 'base.html' %}` templating was missing `''
 
 When the `''` were added everything works as expected.
 
+3.
+
+Database info was still being push to github despite `*.sqlite3` being in the .gitignore.
+
+Added `db.sqlite3` to the .gitignore file to rectify this.
+
 ### Performance Testing
 
 ### Code Validation
