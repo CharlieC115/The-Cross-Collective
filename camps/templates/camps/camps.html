@@ -17,44 +17,30 @@
         </div>
     </div>
     <div class="row">
+        {% for camp in camps %}
         <div class="col-12 col-md-6 col-lg-3 p-5">
+            {% if camp.image %}
             <img src="/media/hero-image.jpg" alt="" height="200" width="200">
-            <h3>October Camp 2021 (Uk)</h3>
-            <p>Club Name</p>
-            <p>Dates</p>
-            <p>Price</p>
+            {% else %}
+            <img src="/media/no-image-fill.jpg" alt="" height="200" width="200">
+            {% endif %}
+            <h3>{{ camp.name }}</h3>
+            <p>{{ camp.location }}</p>
+            <p>{{ camp.start_date }} to {{ camp.finish_date }}</p>
+            <p>{{ camp.price }}</p>
             <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
                 aria-expanded="false" aria-controls="collapseExample">
                 More Details
             </button>
             <div class="collapse" id="collapseExample">
                 <div class="card card-body bg-black">
-                    <p>Camp Address</p>
-                    <p>Coaching Team</p>
-                    <p>Additional Staff</p>
-                    <p>Description</p>
+                    <p>{{ camp.location }}</p>
+                    <p>{{ camp.coaches }}</p>
+                    <p>{{ camp.staff }}</p>
+                    <p>{{ camp.description }}</p>
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-3 p-5">
-            <img src="/media/hero-image.jpg" alt="" height="200" width="200">
-            <h3>October Camp 2021 (Uk)</h3>
-            <p>Club Name</p>
-            <p>Dates</p>
-            <p>Price</p>
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-                aria-expanded="false" aria-controls="collapseExample">
-                More Details
-            </button>
-            <div class="collapse" id="collapseExample">
-                <div class="card card-body bg-black">
-                    <p>Camp Address</p>
-                    <p>Coaching Team</p>
-                    <p>Additional Staff</p>
-                    <p>Description</p>
-                </div>
-            </div>
-        </div>
-    </div>
+        {% endfor %}
 </section>
 {% endblock %}
