@@ -5,6 +5,10 @@ from django.db import models
 
 class Category(models.Model):
     """ This is the camp categories. For example, EU or UK Camp """
+
+    class Meta:
+        verbose_name_plural = 'Categories'
+
     name = models.CharField(max_length=20)
 
     def __str__(self):
