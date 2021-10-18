@@ -52,3 +52,20 @@
     color: #000;
     font-size: 18px;
 }
+
+.camp-hero-image {
+    height: 80vh;
+    background: url('/media/camp-hero-image.jpg') no-repeat center center;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    filter: brightness(120%);
+}
+
+.camp-hero-text h1 {
+    color: #000;
+    font-family: 'Scheherazade New', serif;
+    font-weight: 700;
+    font-size: 60px;
+}
