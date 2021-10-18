@@ -32,6 +32,14 @@ Database info was still being push to github despite `*.sqlite3` being in the .g
 
 Added `db.sqlite3` to the .gitignore file to rectify this.
 
+4.
+
+Error trying to load /camps page in development environment.
+
+The error was showing whenever trying to manually view the camps page and test this works by typing /camps at the end of the url.
+
+The `''` had been missed off `return render` in views.py. When the `''` were added everything worked as expected.
+
 ### Performance Testing
 
 ### Code Validation
