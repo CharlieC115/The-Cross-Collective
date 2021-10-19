@@ -75,3 +75,8 @@
     background-size: cover;
     min-height: calc(100vh - 75px);
 }
+
+.days-booking-input {
+    display: flex;
+    justify-content: center;
+}

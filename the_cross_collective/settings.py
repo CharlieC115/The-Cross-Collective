@@ -74,6 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request', # allauth requires this context processor
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'bag.contexts.bag_contents',
             ],
         },
     },

@@ -2,7 +2,22 @@
 {% load static %}
 
 {% block content %}
-<section class="bag">
-    
+<section class="bg-black text-white text-center p-5 bag">
+    <div class="row">
+        <div class="col-12 p-5">
+            <h2 class="text-uppercase">Shopping Bag</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 p-5">
+            {% if bag_items %}
+            {% else %}
+                <p class="m-5">Your bag is empty.</p>
+                <a class="button m-5" href="{% url 'camps' %}">
+                    View Camps & Events!
+                </a>
+            {% endif %}
+        </div>
+    </div>
 </section>
 {% endblock %}
