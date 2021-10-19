@@ -46,6 +46,14 @@ The no image fill wasn't showing when no image was submitted with a data entry o
 
 There was a typo in the link and this was rectified. This may need editing again later when static files are linked to aws.
 
+6.
+
+Error when trying to display camps by a certain category. No camps were showing when a category was selected from the dropdown.
+
+This is was generated due to a vital missing part in views.py of the camps folder. `.split(',')` was missging from the end of `request.GET['categories']` so the relayed information wasn't matching that requested from the url.
+
+When `.split(',')` was added everything worked as expected.
+
 ### Performance Testing
 
 ### Code Validation
