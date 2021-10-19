@@ -54,6 +54,14 @@ This is was generated due to a vital missing part in views.py of the camps folde
 
 When `.split(',')` was added everything worked as expected.
 
+7.
+
+Error when trying to load camp page preview in development environment. Error saying redirect is undefined.
+
+Missing `redirect` import at the top of bag views.url.
+
+When this was added the problem was rectified.
+
 ### Performance Testing
 
 ### Code Validation
