@@ -40,6 +40,12 @@ The error was showing whenever trying to manually view the camps page and test t
 
 The `''` had been missed off `return render` in views.py. When the `''` were added everything worked as expected.
 
+5.
+
+The no image fill wasn't showing when no image was submitted with a data entry on the admin panel.
+
+There was a typo in the link and this was rectified. This may need editing again later when static files are linked to aws.
+
 ### Performance Testing
 
 ### Code Validation
