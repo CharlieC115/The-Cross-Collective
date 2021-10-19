@@ -9,6 +9,11 @@ def all_camps(request):
 
     camps = Camp.objects.all()
 
+    if request.GET:
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            camps = camps.filter(category__name__in=categories)
+
     context = {
         'camps': camps,
     }

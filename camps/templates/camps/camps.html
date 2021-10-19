@@ -22,16 +22,17 @@
             {% if camp.image %}
             <img src="/media/hero-image.jpg" alt="" height="200" width="200">
             {% else %}
-            <img src="/media/no-image-fill.jpg" alt="" height="200" width="200">
+            <img src="/media/txc-noimage-fill.png" alt="" height="200" width="200">
             {% endif %}
             <h3>{{ camp.name }}</h3>
             <p>{{ camp.location }}</p>
             <p>{{ camp.start_date }} to {{ camp.finish_date }}</p>
             <p>{{ camp.price }}</p>
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+            <button class="button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
                 aria-expanded="false" aria-controls="collapseExample">
                 More Details
             </button>
+            <a href="#" class="button" type="button">Add to Cart</a>
             <div class="collapse" id="collapseExample">
                 <div class="card card-body bg-black">
                     <p>{{ camp.location }}</p>

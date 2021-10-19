@@ -23,7 +23,7 @@
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="row container-fluid">
             <div class="col-12 col-lg-4">
-                <a class="navbar-brand" href="#">The Cross Collective</a>
+                <a class="navbar-brand" href="{% url 'home' %}">The Cross Collective</a>
                 <button class="navbar-toggler float-end" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -34,13 +34,19 @@
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link" href="{% url 'home' %}">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">About Us</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Camps</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="camp-event-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Camps & Events</a>
+                            <div class="dropdown-menu" aria-labelledby="camp-event-dropdown">
+                                <a class="dropdown-item" href="{% url 'camps' %}">All Camps and Events</a>
+                                <a class="dropdown-item" href="{% url 'camps' %}?category=UK Camp">UK Camps</a>
+                                <a class="dropdown-item" href="{% url 'camps' %}?category=EU Camp">EU Camps</a>
+                                <a class="dropdown-item" href="{% url 'camps' %}?category=Event">Events</a>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Gallery</a>
