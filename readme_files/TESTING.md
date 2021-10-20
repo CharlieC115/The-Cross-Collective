@@ -62,6 +62,14 @@ Missing `redirect` import at the top of bag views.url.
 
 When this was added the problem was rectified.
 
+8.
+
+Error when viewing the cbag page when an item was there that had no image to load (had the no image fill image on camp page)
+
+This was causing the page to run an error as `{ item.camp.image.url }` was looking for an image that didn't exist.
+
+Added an if statement to show the no image fill if an image doesn't exist. This now works as expected.
+
 ### Performance Testing
 
 ### Code Validation
