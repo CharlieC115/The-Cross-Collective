@@ -2,23 +2,82 @@
 {% load static %}
 
 {% block content %}
-<section class="bg-black text-white text-center p-5 bag">
+<section class="p-5 bag">
     <div class="row">
         <div class="col-12 p-5">
-            <h2 class="text-uppercase">Shopping Bag</h2>
+            <h2 class="text-uppercase text-center">Welcome to your cart</h2>
         </div>
     </div>
     <div class="row">
         <div class="col-12 p-5">
             {% if bag_items %}
-                <div class="table-responsive">
-                    {{ bag_items }}
-                </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Product Image</th>
+                            <th scope="col">Camp Name</th>
+                            <th scope="col">Dates</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Subtotal</th>
+                        </tr>
+                    </thead>
+
+                    {% for item in bag_items %}
+                    <tr>
+                        <td>
+                            {% if item.camp.image %}
+                            <img src="{{ item.camp.image.url }}" alt="" height="200" width="200">
+                            {% else %}
+                            <img src="/media/txc-noimage-fill.png" alt="" height="200" width="200">
+                            {% endif %}
+                        </td>
+                        <td>
+                            <p>{{ item.camp.name }}</p>
+                        </td>
+                        <td>
+                            <p>{{ item.camp.start_date }} to {{ item.camp.finish_date }}</p>
+                        </td>
+                        <td>
+                            <p>{{ item.camp.price }}</p>
+                        </td>
+                        <td>
+                            <p>{{ item.quantity }}</p>
+                        </td>
+                        <td>
+                            <p>{{ item.subtotal }}</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="5">
+                            <p class="text-end">Total:</p>                          
+                        </td>
+                        <td colspan="1">
+                            <p class="">{{ total }}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" class="text-end">
+                            <a href="{% url 'camps' %}" class="button">
+                                <span class="text-uppercase">View More Camps</span>
+                            </a>
+                            <a href="" class="button">
+                                <span class="text-uppercase">Secure Checkout</span>
+                                <span class="icon">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
             {% else %}
-                <p class="m-5">Your bag is empty.</p>
-                <a class="button m-5" href="{% url 'camps' %}">
-                    View Camps & Events!
-                </a>
+            <p class="m-5">Your bag is empty.</p>
+            <a class="button m-5" href="{% url 'camps' %}">
+                View Camps & Events!
+            </a>
             {% endif %}
         </div>
     </div>

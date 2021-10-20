@@ -13,10 +13,12 @@ def bag_contents(request):
     for item_id, quantity in bag.items():
         camp = get_object_or_404(Camp, pk=item_id)
         total += quantity * camp.price
+        subtotal = quantity * camp.price
         bag_items.append({
             'item_id': item_id,
             'quantity': quantity,
             'camp': camp,
+            'subtotal': subtotal,
         })
 
     context = {

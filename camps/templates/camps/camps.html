@@ -20,7 +20,7 @@
         {% for camp in camps %}
         <div class="col-12 col-md-6 col-lg-3 p-5">
             {% if camp.image %}
-            <img src="/media/hero-image.jpg" alt="" height="200" width="200">
+            <img src="{{ camp.image.url }}" alt="" height="200" width="200">
             {% else %}
             <img src="/media/txc-noimage-fill.png" alt="" height="200" width="200">
             {% endif %}
