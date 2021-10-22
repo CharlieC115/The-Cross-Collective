@@ -49,7 +49,17 @@
                     <div class="col-12 days-booking-input">
                         <div class="form-group">
                             <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <button class="decrement-qty button bg-black text-white" data-item_id="{{ camp.id }}" id="decrement-qty_{{ camp.id }}">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
                                 <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="25" data-item_id="{{ camp.id }}" id="id_qty_{{ camp.id }}">
+                                <div class="input-group-append">
+                                    <button class="increment-qty button bg-black text-white" data-item_id="{{ camp.id }}" id="increment-qty_{{ camp.id }}">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
