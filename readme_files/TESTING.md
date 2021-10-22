@@ -70,6 +70,14 @@ This was causing the page to run an error as { item.camp.image.url } was looking
 
 Added an if statement to show the no image fill if an image doesn't exist. This now works as expected.
 
+9.
+
+When clicking the increment or decrement buttons the value would'nt increase or decrease it would just submit the item to the bag.
+
+This was caused due to the use of jQuery and not having the script tag to link to the jQuery CDN.
+
+When this was added the buttons worked as expected.
+
 ### Performance Testing
 
 ### Code Validation
