@@ -80,3 +80,8 @@
     display: flex;
     justify-content: center;
 }
+
+.update-item,
+.remove-item {
+    cursor: pointer;
+}
