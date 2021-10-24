@@ -11,12 +11,14 @@
     <div class="row">
         <div class="col-12 col-lg-6">
             <p>Please fill out the form below to complete your order</p>
-            <form action="{% url 'camps' %}" method="POST" id="payment-form">
+            <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
                 <fieldset class="px-3 mb-5">
                     <legend class="small text-black px-2 w-auto">Details</legend>
                     <p class="my-2">{{ order_form.first_name | as_crispy_field }}</p>
+                    <p class="my-2">{{ order_form.last_name | as_crispy_field }}</p>
                     <p class="my-2">{{ order_form.email | as_crispy_field }}</p>
+                    <p class="my-2">{{ order_form.postcode | as_crispy_field }}</p>
                     <p class="my-2">{{ order_form.contact_number | as_crispy_field }}</p>
                     <div class="form-check form-check-inline float-right mr-0">
                         {% if user.is_authenticated %}
@@ -49,6 +51,7 @@
                             <i class="fas fa-lock"></i>
                         </span>
                     </button>
+                    {{ order_form.errors }}
                     <p class="small text-danger my-2">
                             <i class="fas fa-exclamation-circle"></i>
                         <span>Your card will be charged <strong>${{ total|floatformat:2 }}</strong></span>

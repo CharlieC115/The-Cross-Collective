@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="p-5">
+    <div class="row">
+        <div class="col-12 p-5">
+            <h2 class="text-uppercase text-center">Thank you for your booking</h2>
+        </div>
+        <div class="col-12 p-5">
+            <p class="text-uppercase text-center">Your booking and order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 p-5">
+            <h2 class="text-uppercase text-center">Thank you for your booking</h2>
+        </div>
+    </div>
+</section>
+{% endblock %}
