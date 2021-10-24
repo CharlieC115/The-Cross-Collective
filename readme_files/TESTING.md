@@ -78,6 +78,14 @@ This was caused due to the use of jQuery and not having the script tag to link t
 
 When this was added the buttons worked as expected.
 
+10.
+
+Error when trying to submit payment information in checkout page. Card field would freeze (disable) and the information wouldn't submit.
+
+Forgot to link client secret variable from python file to javascript file. `{{ client_secret|json_script:"id_client_secret" }}` was added to base.html page.
+
+When this was added everything worked as expected.
+
 ### Performance Testing
 
 ### Code Validation
