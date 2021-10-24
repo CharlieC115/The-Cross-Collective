@@ -86,6 +86,22 @@ Forgot to link client secret variable from python file to javascript file. `{{ c
 
 When this was added everything worked as expected.
 
+11.
+
+When submitting payment user was directed to the camps page instead of the success page. Using print statements I found the checkout view wasn't reciving a POST method hence the ridect as stated in the else if the if statement below.
+
+This was caused do to a mistake in the url templating route. `{% url 'camps' %}` was specified in the action of the form instead of `{% url 'checkout' %}`
+
+When this was ammend the form behaved as expected.
+
+12.
+
+Error when deleting orders from the admin console. This error was caused due to a value of None being passed when attemping to delete an order throwing an error statement.
+
+This was fixed by adding an `or 0` to the end of `self.total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0`
+
+The admin console now allows orders to be deleted without an error showing.
+
 ### Performance Testing
 
 ### Code Validation
