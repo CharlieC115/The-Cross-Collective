@@ -1,6 +1,11 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.conf import settings
 
+# # Added for Webhooks - Trying a different way for webhooks to work
+# from django.http import HttpResponse, JsonResponse
+# from django.views.decorators.csrf import csrf_exempt
+
+
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from camps.models import Camp
@@ -84,3 +89,12 @@ def checkout_success(request, order_number):
     }
 
     return render(request, template, context)
+
+# Trying a different way for webhooks to work
+# @csrf_exempt
+# def webhook_received(request):
+#     if request.method == 'POST':
+#         webhook_secret = settings.STRIPE_WEBHOOK_KEY
+#         request_data = json.loads(request.body)
+
+#     return JsonResponse({'status': 'success'})
