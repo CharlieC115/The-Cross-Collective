@@ -22,7 +22,7 @@
     <title>The Cross Collective</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top nav-bg-colour">
         <div class="row container-fluid">
             <div class="col-12 col-lg-4">
                 <a class="navbar-brand" href="{% url 'home' %}">The Cross Collective</a>
@@ -128,8 +128,8 @@
             </div>
         </div>
     </footer>
-    
-    <script src="{% static 'js/base.js' %}"></script>
+    {% block extra_js %}
+    {% endblock %}
     {% include 'camps/includes/quantity_input_script.html' %}
     {{ stripe_public_key|json_script:"id_stripe_public_key" }}
     {{ client_secret|json_script:"id_client_secret" }}

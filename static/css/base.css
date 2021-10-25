@@ -9,10 +9,14 @@
 .show {
     background-color: #C0C0C0;
     opacity: 1;
-    -webkit-transition: all 1s ease-in-out;
-	-moz-transition: all 1s ease-in-out;
-	-o-transition: all 1s ease-in-out;
-	transition: all 1s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+	-moz-transition: all .5s ease-in-out;
+	-o-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
+}
+
+.nav-bg-colour {
+    background-color: #C0C0C0;
 }
 
 /* Home Page - Hero Section */
@@ -33,7 +37,7 @@
     font-size: 60px;
 }
 
-.button {
+.btn {
     background-color: #fff;
     color: #000;
     font-size: 18px;
@@ -42,6 +46,7 @@
     letter-spacing: 3px;
     padding: 10px;
     border: 0;
+    border-radius: 0;
     text-decoration: none;
 }
 
@@ -80,7 +85,7 @@
 }
 
 
-.bag {
+.page-height {
     background-size: cover;
     min-height: calc(100vh - 75px);
 }
