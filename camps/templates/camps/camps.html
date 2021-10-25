@@ -20,11 +20,11 @@
         {% for camp in camps %}
         <div class="col-12 col-lg-6 col-xl-4 p-5">
             {% if camp.image %}
-                <a class="btn text-uppercase p-0" href="{% url 'camp_details' camp.id %}">
+                <a class="p-0" href="{% url 'camp_details' camp.id %}">
                     <img src="{{ camp.image.url }}" alt="" height="180" width="320">
                 </a>
             {% else %}
-                <a class="btn text-uppercase p-0" href="{% url 'camp_details' camp.id %}">
+                <a class="p-0" href="{% url 'camp_details' camp.id %}">
                     <img src="/media/txc-noimage-fill.png" alt="" height="180" width="180">
                 </a>
             {% endif %}
@@ -36,15 +36,56 @@
                 <p>{{ camp.start_date }} to {{ camp.finish_date }}</p>
             {% endif %}
             <p>£{{ camp.price }} per day</p>
-
-            <a class="btn text-uppercase" href="{% url 'camp_details' camp.id %}">
+            <a class="btn bg-white text-black text-uppercase" href="{% url 'camp_details' camp.id %}">
                 See more details
             </a>
-            
-            
-            
+            <form class="form" action="{% url 'add_to_bag' camp.id %}" method="POST">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="col-12">
+                        <p class="my-3"><strong>Total Days Booking:</strong></p>
+                    </div>
+                    <div class="col-12 days-booking-input">
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <button class="decrement-qty btn bg-black text-white" data-item_id="{{ camp.id }}" id="decrement-qty_{{ camp.id }}">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                                <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="25" data-item_id="{{ camp.id }}" id="id_qty_{{ camp.id }}">
+                                <div class="input-group-append">
+                                    <button class="increment-qty btn bg-black text-white" data-item_id="{{ camp.id }}" id="increment-qty_{{ camp.id }}">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <input type="submit" class="btn bg-white text-black" value="Add to Cart">
+                    </div>
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                </div>
+            </form>
         </div>
+        {% if forloop.counter|divisibleby:1 %}
+        <div class="col-12 d-lg-none mb-5">
+            <hr>
+        </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:2 %}
+        <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+            <hr>
+        </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:3 %}
+        <div class="col-12 d-none d-xl-block mb-5">
+            <hr>
+        </div>
+        {% endif %}
         {% endfor %}
+    </div>
 </section>
 {% endblock %}
 
