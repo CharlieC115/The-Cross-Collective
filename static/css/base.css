@@ -29,6 +29,14 @@ hr {
     opacity: 1;
 }
 
+h1, h2, h3, h4, p, td, th, a, input {
+    font-family: 'Scheherazade', sans-serif;
+}
+
+.bg-silver {
+    background-color: #C0C0C0;
+}
+
 /* Home Page - Hero Section */
 .hero-image {
     height: 80vh;
