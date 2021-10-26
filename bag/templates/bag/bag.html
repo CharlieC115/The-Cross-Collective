@@ -2,7 +2,8 @@
 {% load static %}
 
 {% block content %}
-<section class="p-5 bag">
+<div class="header-top"></div>
+<section class="bg-black text-white page-height p-5">
     <div class="row">
         <div class="col-12 p-5">
             <h2 class="text-uppercase text-center">Welcome to your cart</h2>
@@ -12,7 +13,7 @@
         <div class="col-12 p-5">
             {% if bag_items %}
             <div class="table-responsive">
-                <table class="table">
+                <table class="table text-white">
                     <thead>
                         <tr>
                             <th scope="col">Product Image</th>
@@ -28,16 +29,20 @@
                     <tr>
                         <td>
                             {% if item.camp.image %}
-                            <img src="{{ item.camp.image.url }}" alt="" height="200" width="200">
+                            <img src="{{ item.camp.image.url }}" alt="" height="117" width="208">
                             {% else %}
-                            <img src="/media/txc-noimage-fill.png" alt="" height="200" width="200">
+                            <img src="/media/txc-noimage-fill.png" alt="" height="117" width="117">
                             {% endif %}
                         </td>
                         <td>
                             <p>{{ item.camp.name }}</p>
                         </td>
                         <td>
-                            <p>{{ item.camp.start_date }} to {{ item.camp.finish_date }}</p>
+                            {% if item.camp.start_date == item.camp.finish_date %}
+                                <p>{{ item.camp.start_date }}</p>
+                            {% else %}
+                                <p>{{ item.camp.start_date }} to {{ item.camp.finish_date }}</p>
+                            {% endif %}
                         </td>
                         <td>
                             <p>{{ item.camp.price }}</p>
@@ -48,13 +53,13 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <button class="decrement-qty button bg-black text-white p-1" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                            <button class="decrement-qty btn bg-black text-white p-1" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
                                                 <i class="fas fa-minus px-1"></i>
                                             </button>
                                         </div>
                                         <input class="form-control form-control-sm qty_input" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="25" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
                                         <div class="input-group-append">
-                                            <button class="increment-qty button bg-black text-white p-1" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                            <button class="increment-qty btn bg-black text-white p-1" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
                                                 <i class="fas fa-plus px-1"></i>
                                             </button>
                                         </div>
@@ -62,8 +67,8 @@
                                 </div>
                             </form>
                             <div class="mt-3">
-                                <a class="update-item button float-start bg-black text-white py-1">Update</a>
-                                <a class="remove-item button float-end bg-black text-white py-1" id="remove_{{ item.item_id }}">Remove</a>
+                                <a class="update-item button float-start btn bg-white text-black py-1">Update</a>
+                                <a class="remove-item button float-end btn bg-white text-black py-1" id="remove_{{ item.item_id }}">Remove</a>
                             </div>
                         </td>
                         <td>
@@ -73,18 +78,18 @@
                     {% endfor %}
                     <tr>
                         <td colspan="5">
-                            <p class="text-end">Total:</p>                          
+                            <p class="text-end"><strong>Total:</strong></p>                          
                         </td>
                         <td colspan="1">
-                            <p class="">{{ total }}</p>
+                            <p>{{ total }}</p>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="6" class="text-end">
-                            <a href="{% url 'camps' %}" class="button">
+                        <td colspan="6" class="text-end border-0">
+                            <a href="{% url 'camps' %}" class="btn bg-white text-black">
                                 <span class="text-uppercase">View More Camps</span>
                             </a>
-                            <a href="{% url 'checkout' %}" class="button">
+                            <a href="{% url 'checkout' %}" class="btn bg-white text-black">
                                 <span class="text-uppercase">Secure Checkout</span>
                                 <span class="icon">
                                     <i class="fas fa-lock"></i>
