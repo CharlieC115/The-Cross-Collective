@@ -35,7 +35,7 @@
             {% else %}
                 <p>{{ camp.start_date }} to {{ camp.finish_date }}</p>
             {% endif %}
-            <p>£{{ camp.price }} per day</p>
+            <p>£{{ camp.price }} per camp</p>
             <a class="btn bg-white text-black text-uppercase" href="{% url 'camp_details' camp.id %}">
                 See more details
             </a>
@@ -43,9 +43,9 @@
                 {% csrf_token %}
                 <div class="form-row">
                     <div class="col-12">
-                        <p class="my-3"><strong>Total Days Booking:</strong></p>
+                        <p class="my-3"><strong>Quantity:</strong></p>
                     </div>
-                    <div class="col-12 days-booking-input">
+                    <div class="col-12 days-booking-input justify-content-center">
                         <div class="form-group">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">

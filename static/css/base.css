@@ -6,6 +6,10 @@
     padding: 0;
 }
 
+.header-top {
+    height: 64px;
+}
+
 .show {
     background-color: #C0C0C0;
     opacity: 1;
@@ -17,6 +21,12 @@
 
 .nav-bg-colour {
     background-color: #C0C0C0;
+}
+
+hr {
+    color: #C0C0C0;
+    padding: 2px;
+    opacity: 1;
 }
 
 /* Home Page - Hero Section */
@@ -38,8 +48,6 @@
 }
 
 .btn {
-    background-color: #fff;
-    color: #000;
     font-size: 18px;
     font-weight: 700;
     font-family: 'Scheherazade New', serif;
@@ -87,12 +95,12 @@
 
 .page-height {
     background-size: cover;
-    min-height: calc(100vh - 75px);
+    min-height: calc(100vh - 139px);
 }
 
 .days-booking-input {
     display: flex;
-    justify-content: center;
+
 }
 
 .update-item,
