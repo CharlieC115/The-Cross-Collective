@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import Camp
 from .forms import CampForm
 
@@ -8,7 +8,7 @@ from .forms import CampForm
 def all_camps(request):
     """ A view to show all upcoming camps """
 
-    camps = Camp.objects.all()
+    camps = Camp.objects.all().order_by('start_date')
 
     if request.GET:
         if 'category' in request.GET:
@@ -42,7 +42,14 @@ def camp_details(request, camp_id):
 def add_camp(request):
     """ A view where admin/staff can add a camp to the bookings """
 
-    form = CampForm()
+    if request.method == 'POST':
+        form = CampForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('add_camp'))
+    else:
+        form = CampForm()
+
     template = 'camps/add_camp.html'
     context = {
         'form': form,
