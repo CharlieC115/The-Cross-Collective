@@ -65,7 +65,11 @@
                         <a class="text-black" href="#" role="button" id="accountMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="text-center">
                                 <i class="fas fa-user"></i>
+                                {% if request.user.is_authenticated %}
+                                <p class="my-0">{{ user }}</p>
+                                {% else %}
                                 <p class="my-0">My Account</p>
+                                {% endif %}
                             </div>
                         </a>
                         <ul class="dropdown-menu border-0" aria-labelledby="accountMenuLink">

@@ -125,9 +125,15 @@
     </div>
     <div class="row text-center">
         <div class="col-12 p-5">
+            {% if from_profile %}
+            <a href="{% url 'profile' %}" class="btn bg-white text-black">
+                <span class="text-uppercase">Return to Profile</span>
+            </a>
+            {% else %}
             <a href="{% url 'camps' %}" class="btn bg-white text-black">
                 <span class="text-uppercase">View More Camps</span>
             </a>
+            {% endif %}
         </div>
     </div>
 </section>

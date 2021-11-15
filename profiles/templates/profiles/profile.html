@@ -6,22 +6,51 @@
 <section class="p-5 bg-black text-white text-center page-height">
     <div class="row">
         <div class="col-12 p-5">
-            <h2 class="text-uppercase text-center">Welcome, {{ profile }}</h2>
+            <h2 class="text-uppercase text-center">Welcome, {{ user }}</h2>
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
+        <div class="col-10 offset-1 col-md-6 offset-md-3 profile-info">
             <p>My details:</p>
             <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <button class="btn bg-white text-black">Update Information</button>
+                <button class="btn bg-white text-black my-3">Update Information</button>
             </form>
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
-            {{ orders }}
+        <div class="col-10 offset-1 col-md-8 offset-md-2 mb-5">
+            <h3 class="text-white my-5"><strong>Booking History</strong></h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order Number</th>
+                        <th>Date</th>
+                        <th>Items</th>
+                        <th>Order Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>
+                            <a href="{% url 'booking_history' order.order_number %}" title="{{ order.order_number }}">{{ order.order_number|truncatechars:8 }}</a>
+                        </td>
+                        <td>{{ order.date }}</td>
+                        <td>
+                            <ul>
+                                {% for item in order.lineitems.all %}
+                                    {{ item.camp }} x {{ item.quantity }}
+                                    <br>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        <td>{{ order.total }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 </section>
