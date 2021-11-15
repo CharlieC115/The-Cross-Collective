@@ -102,6 +102,14 @@ This was fixed by adding an `or 0` to the end of `self.total = self.lineitems.ag
 
 The admin console now allows orders to be deleted without an error showing.
 
+13.
+
+Error when trying to test the delete function created in camps/views.py
+
+Page was showing a routing error when the url to delete a product id was typed in. This was fixed by addin a `/` to the end of the delete url so the url's path read `'delete/<int:camp_id>/'`.
+
+Everything worked as expected when the forward slash was added to this path.
+
 ### Performance Testing
 
 ### Code Validation
