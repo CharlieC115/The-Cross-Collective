@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.contrib.auth.decorators import login_required
 from .models import Camp
 from .forms import CampForm
 
@@ -39,8 +40,12 @@ def camp_details(request, camp_id):
     return render(request, 'camps/camp_details.html', context)
 
 
+@login_required
 def add_camp(request):
     """ A view where admin/staff can add a camp to the bookings """
+
+    if not request.user.is_superuser:
+        return redirect(reverse('home'))
 
     if request.method == 'POST':
         form = CampForm(request.POST, request.FILES)
@@ -58,8 +63,12 @@ def add_camp(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_camp(request, camp_id):
     """ A view to allow admin/staff to edit camp details """
+
+    if not request.user.is_superuser:
+        return redirect(reverse('home'))
 
     camp = get_object_or_404(Camp, pk=camp_id)
 
@@ -80,8 +89,12 @@ def edit_camp(request, camp_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_camp(request, camp_id):
     """ Function to delete a camp from the site """
+
+    if not request.user.is_superuser:
+        return redirect(reverse('home'))
 
     camp = get_object_or_404(Camp, pk=camp_id)
     camp.delete()
