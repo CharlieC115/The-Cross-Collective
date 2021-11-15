@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Camp
+from .forms import CampForm
 
 # Create your views here.
 
@@ -36,3 +37,15 @@ def camp_details(request, camp_id):
     }
 
     return render(request, 'camps/camp_details.html', context)
+
+
+def add_camp(request):
+    """ A view where admin/staff can add a camp to the bookings """
+
+    form = CampForm()
+    template = 'camps/add_camp.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
