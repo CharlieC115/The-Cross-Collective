@@ -56,3 +56,25 @@ def add_camp(request):
     }
 
     return render(request, template, context)
+
+
+def edit_camp(request, camp_id):
+    """ A view to allow admin/staff to edit camp details """
+
+    camp = get_object_or_404(Camp, pk=camp_id)
+
+    if request.method == 'POST':
+        form = CampForm(request.POST, request.FILES, instance=camp)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('camp_details', args=[camp.id]))
+    else:
+        form = CampForm(instance=camp)
+
+    template = 'camps/edit_camp.html'
+    context = {
+        'form': form,
+        'camp': camp,
+    }
+
+    return render(request, template, context)
