@@ -63,11 +63,17 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <input type="submit" class="btn bg-white text-black text-uppercase" value="Add to Cart">
+                        <input type="submit" class="btn bg-white text-black text-uppercase m-2" value="Add to Cart">
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </div>
             </form>
+            {% if request.user.is_superuser %}
+            <div class="ml-3">
+                <a class="btn bg-white text-black text-uppercase m-1" href="{% url 'edit_camp' camp.id %}">Edit</a>
+                <a class="btn bg-white text-black text-uppercase m-1" href="{% url 'delete_camp' camp.id %}">Delete</a>
+            </div>
+            {% endif %}
         </div>
         {% if forloop.counter|divisibleby:1 %}
         <div class="col-12 d-lg-none mb-5">

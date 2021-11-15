@@ -78,3 +78,11 @@ def edit_camp(request, camp_id):
     }
 
     return render(request, template, context)
+
+
+def delete_camp(request, camp_id):
+    """ Function to delete a camp from the site """
+
+    camp = get_object_or_404(Camp, pk=camp_id)
+    camp.delete()
+    return redirect(reverse('camps'))

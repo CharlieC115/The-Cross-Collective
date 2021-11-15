@@ -66,10 +66,18 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-5 mt-5">
-                    <a class="btn bg-white text-black text-uppercase" href="{% url 'camps' %}">
+                <div class="col-5 mt-5 text-center">
+                    <a class="btn bg-white text-black text-uppercase m-2" href="{% url 'camps' %}">
                         View More Camps
                     </a>
+                    {% if request.user.is_superuser %}
+                    <div class="ml-3 text-center">
+                        <a class="btn bg-white text-black text-uppercase m-1"
+                            href="{% url 'edit_camp' camp.id %}">Edit</a>
+                        <a class="btn bg-white text-black text-uppercase m-1"
+                            href="{% url 'delete_camp' camp.id %}">Delete</a>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
