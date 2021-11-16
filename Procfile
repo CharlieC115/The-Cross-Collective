@@ -1,1 +1,1 @@
-web: gunicorn The_Cross_Collective.wsgi:application
+web: gunicorn The-Cross-Collective.wsgi:application
