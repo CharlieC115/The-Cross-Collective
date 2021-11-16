@@ -119,7 +119,7 @@ WSGI_APPLICATION = 'the_cross_collective.wsgi.application'
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
-        'default': dj_database_url.parse('DATABASE_URL')
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 else:
     DATABASES = {
