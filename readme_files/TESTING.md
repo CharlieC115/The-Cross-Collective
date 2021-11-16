@@ -110,6 +110,14 @@ Page was showing a routing error when the url to delete a product id was typed i
 
 Everything worked as expected when the forward slash was added to this path.
 
+14.
+
+Aplication Error when trying to load app in Heroku for the first time. When looking at the logs the system wasn't connecting to Heroku because the DATABASE_URL wasn't being called correctly and the Proficle app wasn't defined correctly.
+
+This was fixed by adding `os.environ.get` to the database dictionary for the heroku app. The app I was trying to connect to in the procfile worked when the letter case errors were corrected.
+
+Eveything worked as expected when these changes were made.
+
 ### Performance Testing
 
 ### Code Validation
